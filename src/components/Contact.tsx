@@ -4,7 +4,7 @@ import { OWNER } from "@/lib/data";
 
 const links = [
   { icon: "📧", label: "EMAIL", val: OWNER.email, href: `mailto:${OWNER.email}` },
-  { icon: "🐦", label: "TWITTER / X", val: OWNER.twitter, href: "#" },
+  { icon: "🐦", label: "TWITTER / X", val: "Not added", href: "#" },
   { icon: "💼", label: "LINKEDIN", val: OWNER.linkedin, href: "#" },
   { icon: "🐙", label: "GITHUB", val: OWNER.github, href: "#" },
 ];
