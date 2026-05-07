@@ -20,7 +20,7 @@ export default function AIPanel() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "ai",
-      text: "Hey! 👋 I'm **NEXO-AI**, the portfolio assistant for the CEO & Founder of Nexolinx. Ask me about skills, projects, the CV, or anything else!",
+      text: "Hey! 👋 I'm **NEXO-AI**, the portfolio assistant of Sushant. Ask me about skills, projects, the CV, or anything else!",
     },
   ]);
   const [input, setInput] = useState("");
