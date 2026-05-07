@@ -4,7 +4,7 @@ export function getAIResponse(msg: string): string {
   const m = msg.toLowerCase();
 
   if (m.includes("cv") || m.includes("resume") || m.includes("curriculum")) {
-    return `Here's the full CV! 📄\n\`\`\`\n${CV_TEXT}\n\`\`\`\nEmail **hello@nexolinx.com** to request a formatted PDF version.`;
+    return `Here's the full CV! 📄\n\`\`\`\n${CV_TEXT}\n\`\`\`\nEmail **sushantgautam854@gmail.com** to request a formatted PDF version.`;
   }
   if (m.includes("service") || m.includes("what do you offer") || m.includes("what can you do")) {
     return `Here are the main services offered:\n\n⚡ **Web Development** — Next.js, React, Node.js\n📈 **Technical SEO** — Audits, rankings, Core Web Vitals\n🏢 **Digital Strategy** — Growth, CRO, product strategy\n🔌 **API & Backend** — REST APIs, databases, cloud infra\n🎨 **UI/UX** — Design systems, component libraries\n🤖 **AI Integration** — LLMs, chatbots, content automation`;
