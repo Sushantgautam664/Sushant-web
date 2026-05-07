@@ -58,7 +58,6 @@ const COMMANDS: Record<string, () => TermLine[] | "__CLEAR__"> = {
   contact: () => [
     { type: "accent", text: "Contact Information:" },
     { type: "out", text: `  📧  ${OWNER.email}` },
-    { type: "out", text: `  🐦  ${OWNER.twitter}` },
     { type: "out", text: `  💼  ${OWNER.linkedin}` },
     { type: "out", text: `  🐙  ${OWNER.github}` },
   ],
