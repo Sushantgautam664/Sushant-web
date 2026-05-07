@@ -11,6 +11,23 @@ const links = [
 export default function Contact() {
   const [sent, setSent] = useState(false);
 
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    const res = await fetch("https://formspree.io/f/xqenlwdj", {
+      method: "POST",
+      body: data,
+      headers: { Accept: "application/json" },
+    });
+
+    if (res.ok) {
+      setSent(true);
+      form.reset();
+    }
+  }
+
   return (
     <section id="contact" className="py-24 px-6 bg-[var(--bg2)]">
       <div className="max-w-6xl mx-auto">
@@ -28,7 +45,7 @@ export default function Contact() {
             </p>
             <div className="flex flex-col gap-3">
               {links.map((l) => (
-                <a
+                
                   key={l.label}
                   href={l.href}
                   className="flex items-center gap-3 bg-[var(--card)] border border-[var(--border)] rounded-md px-4 py-3.5 no-underline hover:border-[var(--accent)] transition-colors duration-200 group"
@@ -51,14 +68,16 @@ export default function Contact() {
           </div>
 
           {/* Form */}
-          <div className="flex flex-col gap-4">
+          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-1.5">
               <label className="font-mono text-[11px] text-[var(--muted)] tracking-widest">
                 NAME
               </label>
               <input
                 type="text"
+                name="name"
                 placeholder="Your name"
+                required
                 className="bg-[var(--card)] border border-[var(--border)] rounded px-4 py-2.5 text-[var(--text)] font-mono text-[12px] outline-none focus:border-[var(--accent)] transition-colors duration-200"
               />
             </div>
@@ -68,7 +87,9 @@ export default function Contact() {
               </label>
               <input
                 type="email"
+                name="email"
                 placeholder="your@email.com"
+                required
                 className="bg-[var(--card)] border border-[var(--border)] rounded px-4 py-2.5 text-[var(--text)] font-mono text-[12px] outline-none focus:border-[var(--accent)] transition-colors duration-200"
               />
             </div>
@@ -77,13 +98,15 @@ export default function Contact() {
                 MESSAGE
               </label>
               <textarea
+                name="message"
                 placeholder="Tell me about your project..."
                 rows={4}
+                required
                 className="bg-[var(--card)] border border-[var(--border)] rounded px-4 py-2.5 text-[var(--text)] font-mono text-[12px] outline-none focus:border-[var(--accent)] transition-colors duration-200 resize-y"
               />
             </div>
             <button
-              onClick={() => setSent(true)}
+              type="submit"
               className={`font-mono text-[12px] font-bold py-3 rounded border-none cursor-pointer tracking-widest transition-all duration-200 ${
                 sent
                   ? "bg-[var(--accent3)] text-black"
@@ -92,7 +115,7 @@ export default function Contact() {
             >
               {sent ? "MESSAGE SENT ✓" : "SEND MESSAGE"}
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </section>
