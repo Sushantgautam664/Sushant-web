@@ -84,7 +84,6 @@ const COMMANDS: Record<string, () => TermLine[] | "__CLEAR__"> = {
   ],
   social: () => [
     { type: "accent", text: "Social & Links:" },
-    { type: "out", text: `  Twitter/X   → ${OWNER.twitter}` },
     { type: "out", text: `  LinkedIn    → ${OWNER.linkedin}` },
     { type: "out", text: `  GitHub      → ${OWNER.github}` },
     { type: "out", text: `  Email       → ${OWNER.email}` },
